@@ -41,6 +41,13 @@ Follow [@taskellcli](https://twitter.com/taskellcli) on Twitter for updates
 
 ## Installation
 
+### Custom
+```
+git clone ~
+stack build
+stack install --local-bin-path=/usr/local/bin/
+```
+
 ### Homebrew (Mac)
 
 You can install Taskell on your Mac using [Homebrew](https://brew.sh):
