@@ -42,6 +42,13 @@ normal (EvKey KEsc _) = normalMode
 normal _ = pure
 
 insert :: Event -> Stateful
+insert (EvKey (KChar c) [MCtrl]) s = do
+    item <- getCurrentItem s
+    case c of
+        c -> case item of
+            DetailDescription -> (write =<<) $ finishDescription s
+            DetailDate -> showDetail s
+            (DetailItem _) -> (write =<<) . (showDetail =<<) $ finishSubtask s
 insert (EvKey KEsc _) s = do
     item <- getCurrentItem s
     case item of
